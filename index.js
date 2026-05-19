@@ -147,7 +147,7 @@ async function discordWebhookSend() {
   if (discordUser) {
       discordMsg = `<@${discordUser}>\n`
   }
-  discordMsg += messages.map(msg => `(${msg.type.toUpperCase()}) ${msg.string}`).join('\n')
+  discordMsg += messages.map(msg => `${msg.string}`).join('\n')
 
   const res = await fetch(discordWebhook, {
     method: 'POST',
@@ -176,7 +176,7 @@ if (!games || !games.length) {
 }
 
 for (const index in cookies) {
-  log('info', `-- CHECKING IN FOR ACCOUNT ${Number(index) + 1} --`)
+  log('debug', `-- CHECKING IN FOR ACCOUNT ${Number(index) + 1} --`)
   await run(cookies[index], games[index])
 }
 
