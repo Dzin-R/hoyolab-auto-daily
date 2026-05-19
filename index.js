@@ -76,8 +76,8 @@ async function run(cookie, games) {
     const json = await res.json()
     const code = String(json.retcode)
     const successCodes = {
-      '0': 'Successfully checked in!',
-      '-5003': 'Already checked in for today',
+      '0': 'Успешно отмечен!',
+      '-5003': 'Уже отмечен сегодня',
     }
 
     // success responses
@@ -88,8 +88,8 @@ async function run(cookie, games) {
 
     // error responses
     const errorCodes = {
-      '-100': 'Error not logged in. Your cookie is invalid, try setting up again',
-      '-10002': 'Error not found. You haven\'t played this game'
+      '-100': 'Ошибка входа. Куки недействительны, настрой заново',
+      '-10002': 'Ошибка. Ты не играл в эту игру'
     }
 
     log('debug', game, `Headers`, Object.fromEntries(res.headers))
